@@ -1,5 +1,8 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald:wght@300&family=Raleway:wght@400;700&family=Roboto:ital,wght@0,300;1,300&family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Open+Sans&family=Oswald:wght@300&family=Raleway:wght@400;700&family=Roboto:ital,wght@0,300;1,300&family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Lora&family=Open+Sans&family=Oswald:wght@300&family=Raleway:wght@400;700&family=Roboto:wght@100&family=Work+Sans&display=swap');
 
 
 /*====== Variables ======*/
@@ -10,7 +13,7 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --base-font-family: 'Oswald', sans-serif
 }
 
 
@@ -29,7 +32,8 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(104,30,203,1) 27%, rgba(0,212,255,1) 100%);;
 }
 
 ul,
@@ -64,11 +68,24 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
+.blancos{
+  color: white;
+  font-size: 18px;
+}
+
+.hipervinculos{
+  font-family: 'Lora', serif;
+}
 
 /*====== Main Header ======*/
+.logo{
+  border-radius: 15px;
+  width: 110px;
+}
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(30,186,203,1) 27%, rgba(0,212,255,1) 100%);
 }
 
 .main-header_home-link,
@@ -77,9 +94,10 @@ hr {
 }
 
 .main-header_credit-link {
-  font-size: 1.5em;
+  font-size: 20px;
   margin-top: 20px;
   text-align: center;
+  color: white;
 }
 
 .search-form {
@@ -136,7 +154,6 @@ hr {
   background: transparent;
   border: 0px;
   cursor: pointer;
-  font-size: 1em;
 }
 
 .logout:hover{
@@ -169,9 +186,10 @@ hr {
 }
 
 .products-title {
-  font-size: 2.4em;
+  font-family: 'Kanit', sans-serif;
+  font-size: 30px;
   font-weight: 400;
-  color: var(--gray);
+  color: white;
 }
 
 .product-box {
@@ -259,7 +277,8 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(30,186,203,1) 27%, rgba(0,212,255,1) 100%);
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -274,15 +293,15 @@ hr {
 }
 
 .footer-data h2 {
-  color: var(--gray);
+  color: white;
   font-size: 2.4em;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: var(--gray);
+  color: white;
   font-size: 1.5em;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .sub-footer {
