@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.get('/', productController.product);
 
-router.get('/detalle/id/:id', productController.detalle);
+router.get('/detalle', productController.detalle);
 
 router.get('/agregarProducto',productController.agregarProducto);
 
