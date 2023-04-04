@@ -1,15 +1,14 @@
+const data = require("../data/data");
+
 const indexController = {
     index: function(req, res) {
-        res.render('index');
+        return res.render('index',{productos: data.productos, comentarios: data.comentarios});
       },
     login: function(req, res) {
-        res.render('login');
+        return res.render('login');
       },
     register:  function(req, res) {
-        res.render('register');
-      },
-    headerLogueado: function(req, res) {
-        res.render('headerLogueado');
+        return res.render('register');
       }
 }
 module.exports = indexController
