@@ -5,7 +5,7 @@ const data = {
         contraseña: "juan99",
         fechaNacimiento: "15/02/1999",
         dni: "38756390",
-        fotoPerfil: "/images/users/default-image.png"
+        fotoPerfil: "/images/users/usuario.jpeg"
       },
 
     productos: [
