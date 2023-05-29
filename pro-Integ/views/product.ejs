@@ -5,7 +5,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%=producto.nombreProducto %></h2> 
+			<h2 class="products-title"><%=data.producto %></h2> 
 			<p class="product-detail-description">
 				<a class="blancos hipervinculos" href="/products/agregarProducto">Editar</a>
 			</p>
@@ -13,55 +13,27 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%=producto.imagen %>" alt="" class="product-detail-img">
+					<img src="<%=data.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%= producto.descripcion %>
-						Fecha de carga: <%=producto.fechaCarga %></p>
+						<%= data.descripcion %>
+						Fecha de carga: <%=data.fechaCarga %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<article>
-							<img src="<%= comentarios[0].imagenPerfil %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a class="hipervinculos" href="/users/profile"><%=comentarios[0].nombreUsuario %>: </a> </strong>
-								<%=comentarios[0].textoComentario %></p>
-							</div>
-						</article>
-						<article>
-							<img src="<%= comentarios[1].imagenPerfil %>" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a class="hipervinculos" href="/users/profile"><%=comentarios[1].nombreUsuario %>: </a> </strong>
-									<%=comentarios[1].textoComentario %></p>
-							</div>
-						</article>
-						<article>
-							<img src="<%= comentarios[2].imagenPerfil %>" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a class="hipervinculos" href="/users/profile"><%=comentarios[2].nombreUsuario %>: </a> </strong>
-									<%=comentarios[2].textoComentario %>
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="<%= comentarios[3].imagenPerfil %>" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a class="hipervinculos" href="/users/profile"><%=comentarios[3].nombreUsuario %>: </a> </strong>
-									<%=comentarios[3].textoComentario %></p>
-							</div>
-						</article>
-						<article>
-							<img src="<%= comentarios[4].imagenPerfil %>" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a class="hipervinculos" href="/users/profile"><%=comentarios[4].nombreUsuario %>: </a> </strong>
-									<%=comentarios[4].textoComentario %></p>
-							</div>
-						</article>
-
+						<% if (data.productoComentario.length == 0) { %>
+						 <p>No se han publicado todavía comentarios en este producto.</p>
+						 <% } else { %>
+							<% for( let i = 0; i < data.productoComentario.length; i++ ) { %>
+								<article>
+									<img src="<%= data.productoComentario[i].comentarioUsuario.fotoPerfil%>" alt="">
+									<div class="data">
+										<p class="user">
+										<strong> <a class="hipervinculos" href="/users/profile"><%=data.productoComentario[i].comentarioUsuario.usuario %>: </a> </strong>
+										<%=data.productoComentario[i].comentario %></p>
+									</div>
+								</article>
+							<% } %>
+						<% } %>
 					</section>
 					<form class="form" action="/products" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
