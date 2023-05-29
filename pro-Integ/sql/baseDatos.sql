@@ -48,12 +48,12 @@ values(default,"juan.perez@gmail.com", "juanperez", "juan99", "1999-02-15", 3875
 
 insert into productos (id, imagen, producto, descripcion, fechaCarga, usuarioId)
 values(default,"/images/products/iphone14ProMax.jpg","iPhone 14 Pro Max","Pantalla de 6.7 pulgadas, procesador A16 Bionic, triple cámara trasera y un diseño renovado.","2022-07-23",1),
-(default,"/images/products/iphone14Pro.jpg","Iphone 14 Pro","Pantalla de 6.1 pulgadas, procesador A16 Bionic, triple cámara trasera y características de gama alta.","2021-09-21",2),
+(default,"/images/products/iphone14pro.jpg","Iphone 14 Pro","Pantalla de 6.1 pulgadas, procesador A16 Bionic, triple cámara trasera y características de gama alta.","2021-09-21",2),
 (default,"/images/products/iphone14.jpg","iPhone 14","Pantalla de 6.1 pulgadas, procesador A16 Bionic, cámara dual trasera y un diseño actualizado.","2021-04-18",3),
 (default,"/images/products/iphone13ProMax.jpg","iPhone 13 Pro Max","Pantalla de 6.7 pulgadas, procesador A15 Bionic, triple cámara trasera y funciones avanzadas de video.","2022-05-24",3),
 (default,"/images/products/iphone13Pro.jpg","iPhone 13 Pro","Pantalla de 6.1 pulgadas, procesador A15 Bionic, triple cámara trasera y características avanzadas de fotografía.","2021-08-17",1),
 (default,"/images/products/iphone13.jpg","iPhone 13","Pantalla de 6.1 pulgadas, procesador A15 Bionic, cámara dual trasera y una batería mejorada.","2021-03-27",4),
-(default,"/images/products/iphoneSE(2G).jpg","iPhone SE","Segunda generación del iphone SE. Pantalla de 4.7 pulgadas, procesador A13 Bionic, cámara trasera de 12 megapíxeles y un precio más asequible.","2022-01-29",5),
+(default,"/images/products/iphoneSE(2daG).jpg","iPhone SE","Segunda generación del iphone SE. Pantalla de 4.7 pulgadas, procesador A13 Bionic, cámara trasera de 12 megapíxeles y un precio más asequible.","2022-01-29",5),
 (default,"/images/products/iphone11ProMax.jpg","iPhone 11 Pro Max","Pantalla de 6.5 pulgadas, procesador A13 Bionic, triple cámara trasera y un diseño renovado.","2021-02-15",5),
 (default,"/images/products/iphone11Pro.jpg","iPhone 11 Pro","Pantalla de 5.8 pulgadas, procesador A13 Bionic, triple cámara trasera y mejoras en la duración de la batería.","2022-03-24",4),
 (default,"/images/products/iphone11.jpg","iPhone 11","Pantalla de 6.1 pulgadas, procesador A13 Bionic, cámara dual trasera y mejoras en la calidad de la fotografía","2022-09-19",2);
