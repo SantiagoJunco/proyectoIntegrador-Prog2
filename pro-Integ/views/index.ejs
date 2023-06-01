@@ -26,10 +26,9 @@
 							</figure>
 							<article class="product-box_data">
 								<h2><%=data[i].producto %></h2>
-								<p><%= data[i].descripcion %></p>
-								<p>Usuario: <%= data[i].productoUsuario.usuario %></p>
+								<p><%= data[i].descripcion %></p></a>
+								<a href="/users/profile/id/<%=data[i].productoUsuario.id %>"><p><strong>Usuario: <%= data[i].productoUsuario.usuario %></strong></p></a>
 							</article>
-						</a>
 					</section>
 				</div>
 			<% } %>
@@ -39,7 +38,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Más comentados</h2>
+				<h2 class="products-title">Recomendados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<% for( let i = 4; i < 8; i++ ) { %>
@@ -51,10 +50,9 @@
 							</figure>
 							<article class="product-box_data">
 								<h2><%=data[i].producto %></h2>
-								<p><%= data[i].descripcion %></p>
-								<p>Usuario: <%= data[i].productoUsuario.usuario %></p>
+								<p><%= data[i].descripcion %></p></a>
+								<a href="/users/profile/id/<%=data[i].productoUsuario.id %>"><p><strong>Usuario: <%= data[i].productoUsuario.usuario %></strong></p></a>
 							</article>
-						</a>
 					</section>
 				</div>
 			<% } %>

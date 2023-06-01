@@ -6,7 +6,7 @@ const indexController = {
     index: function(req, res) {
       let rel = {include: [{association: "productoUsuario"}]}
       Producto.findAll(rel,{raw:true,nest:true}, {order: [
-        ['fechaCarga', 'DESC'], 
+        ['createdAt', 'DESC'], 
         ]
         })
           .then((data) =>{

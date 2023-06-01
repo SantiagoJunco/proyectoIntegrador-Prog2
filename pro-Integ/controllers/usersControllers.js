@@ -9,7 +9,10 @@ const userController = {
   ]
   }
     let id = req.params.id
-    Usuario.findByPk(id, rel, { raw: true, nest: true })
+    Usuario.findByPk(id, rel, { raw: true, nest: true },{order: [
+      ['fechaCarga', 'DESC'], 
+      ]
+      })
       .then((data) => {
         console.log(data);
         return res.render('profile', {data}) 
