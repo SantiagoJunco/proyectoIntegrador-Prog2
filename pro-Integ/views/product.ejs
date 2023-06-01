@@ -14,9 +14,9 @@
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="<%=data.imagen %>" alt="" class="product-detail-img">
-					<p class="product-detail-description">
-						<%= data.descripcion %>
-						Fecha de carga: <%=data.fechaCarga %></p>
+					<p class="product-detail-description"><%= data.descripcion %></p>
+                        <p class="product-detail-description"><strong>Fecha de carga:</strong> <%=data.fechaCarga %> </p>
+                        <p class="product-detail-description"><strong>Usuario que cargó el producto: </strong> <a href="/users/profile/id/<%=data.productoUsuario.id%>"><%= data.productoUsuario.usuario %></a></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
