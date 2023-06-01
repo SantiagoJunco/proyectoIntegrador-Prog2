@@ -5,7 +5,7 @@ const Producto = db.Producto
 const productController = {
   product: function (req, res) {
     let rel = { include: [
-      { association: "productoComentario", include: [{association: "comentarioUsuario"}]}
+      { association: "productoComentario", include: [{association: "comentarioUsuario"}]},{association:"productoUsuario"}
   ]
   }
     let id = req.params.id
