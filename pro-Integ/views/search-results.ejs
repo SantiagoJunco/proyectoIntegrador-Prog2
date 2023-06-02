@@ -14,21 +14,25 @@
 				<div class="container products-wrapper">
 					<div class="row">
 						<!-- Show the "ultimos" products -->
-						<% for( let i = 0; i < busqueda.length ; i++ ) { %>
-							<div class="col-12 col-sm-6 col-lg-3">
-								<section class="product-box">
-									<a href="/products/id/<%=busqueda[i].id%>">
-										<figure class="product-box_image">
-											<img src="<%= busqueda[i].imagen %>" alt="<%=busqueda[i].producto %>">
-										</figure>
-										<article class="product-box_data">
-											<h2><%=busqueda[i].producto %></h2>
-											<p><%= busqueda[i].descripcion %></p></a>
-											<a href="/users/profile/id/<%=busqueda[i].productoUsuario.id %>"><p><strong>Usuario: <%= busqueda[i].productoUsuario.usuario %></strong></p></a>
-										</article>
-								</section>
-							</div>
-						<% } %>
+						<% if (busqueda.length == 0) { %>
+								<h2 class="resultadoBusqueda">Lo sentimos, no hay resultados para su búsqueda</h2>
+						  <% } else { %>
+							<% for( let i = 0; i < busqueda.length ; i++ ) { %>
+								<div class="col-12 col-sm-6 col-lg-3">
+									<section class="product-box">
+										<a href="/products/id/<%=busqueda[i].id%>">
+											<figure class="product-box_image">
+												<img src="<%= busqueda[i].imagen %>" alt="<%=busqueda[i].producto %>">
+											</figure>
+											<article class="product-box_data">
+												<h2><%=busqueda[i].producto %></h2>
+												<p><%= busqueda[i].descripcion %></p></a>
+												<a href="/users/profile/id/<%=busqueda[i].productoUsuario.id %>"><p><strong>Usuario: <%= busqueda[i].productoUsuario.usuario %></strong></p></a>
+											</article>
+									</section>
+								</div>
+							<% } %>
+						  <% } %>
 					</div>	
 				</div>
 	<!-- footer -->

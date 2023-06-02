@@ -275,6 +275,11 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
+.resultadoBusqueda{
+  color: white;
+  font-size: 30px;
+  font-family:'Kanit', sans-serif;
+}
 /*====== Footer ======*/
 .main-footer {
   background: rgb(2,0,36);

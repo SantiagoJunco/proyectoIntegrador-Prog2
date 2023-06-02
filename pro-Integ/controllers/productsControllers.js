@@ -37,7 +37,7 @@ const productController = {
       })
         .then((data) =>{
           console.log(data);
-          return res.render('search-results',{busqueda: data})
+          return res.render('search-results',{busqueda: data, query: {busqueda}})
         })
         .catch((error)=>{
           return console.log(error);
