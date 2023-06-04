@@ -28,6 +28,15 @@ app.use(session(
   }
 ))
 
+app.use(function (req,res,next) {
+  if (req.session.user != undefined) {
+    res.locals.user = req.session.user
+    return next()
+  } else {
+    return next()
+  }
+})
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
