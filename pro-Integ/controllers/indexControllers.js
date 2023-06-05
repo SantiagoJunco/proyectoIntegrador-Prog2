@@ -1,5 +1,6 @@
 const data = require("../data/data");
 const db = require("../database/models")
+const bcrypt = require('bcryptjs')
 const Producto = db.Producto
 const Usuario = db.Usuario
 
@@ -27,6 +28,7 @@ const indexController = {
     registroDatos: function(req, res) {
       let emailForm = req.body.email
       let passForm = req.body.contraseña
+      let passEncriptada = bcrypt.hashSync(passForm,10)
 
       if (emailForm == "") {
         return res.render('register', {error: 'Debe introducir un email'})
@@ -43,13 +45,16 @@ const indexController = {
               console.log(data);
               if (data != undefined) {
                 return res.render('register', {error: 'El email ya está registrado'})
-              }// crear usuario 
-              
-        
-  
-              
-  
-               
+              }else // crear usuario 
+              Usuario.create({
+                email: emailForm,
+                usuario: req.body.usuario,
+                contraseña: passEncriptada,
+                fechaNacimiento: req.body.fecha_nacimiento,
+                dni: req.body.nro_documento,
+                fotoPerfil: req.body.foto_perfil
+              })
+              return res.render('login')
             })
             .catch((error)=>{
               return console.log(error);
