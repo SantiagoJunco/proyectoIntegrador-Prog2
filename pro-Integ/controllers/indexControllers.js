@@ -42,9 +42,7 @@ const indexController = {
             .then((data) =>{
               console.log(data);
               if (data != undefined) {
-                if (data.email == emailForm) {
-                  return res.render('register', {error: 'El email ya está registrado'})
-                }
+                return res.render('register', {error: 'El email ya está registrado'})
               }// crear usuario 
               
         
