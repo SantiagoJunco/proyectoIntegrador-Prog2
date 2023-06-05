@@ -11,10 +11,10 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form class="formsConsigna" action="/login" method="get">
+			<form class="formsConsigna" action="/login/create" method="post">
 				<label class="blancos" for="email">Email:</label>
 				<input class="textosForms" type="email" id="email" name="email"><br>
-			  
+
 				<label class="blancos" for="usuario">Usuario:</label>
 				<input class="textosForms" type="text" id="usuario" name="usuario"><br>
 			  
@@ -29,6 +29,11 @@
 			  
 				<label class="blancos" for="foto_perfil">Foto de Perfil:</label>
 				<input class="textosForms" type="text" id="foto_perfil" name="foto_perfil"><br>
+
+				<% if (error) { %>
+					<br>
+					<p class="blancos"><%= error %></p>
+				<% } %>
 			  
 				<input class="textosForms" type="submit" value="Enviar">
 			  </form>
