@@ -6,9 +6,11 @@ var router = express.Router();
 router.get('/', indexController.index);
 
 router.get('/login', indexController.login);
-router.post('/login/create',indexController.registroDatos)
+router.post('/login',indexController.iniciarSesion)
 
 router.get('/register',indexController.register);
+router.post('/register',indexController.registroDatos)
+
 
 
 

@@ -11,15 +11,19 @@
 				<h2 class="products-title">Ingresar</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form class="formsConsigna" action="/" method="get">
-				<label class="blancos" for="usuario">Usuario:</label>
-				<input class="textosForms" type="text" id="usuario" name="usuario"><br>
+			<form class="formsConsigna" action="/login" method="post">
+				<label class="blancos" for="email">Email:</label>
+				<input class="textosForms" type="text" id="email" name="email"><br>
 			  
 				<label class="blancos" for="contraseña">Contraseña:</label>
 				<input class="textosForms" type="password" id="contraseña" name="contraseña"><br>
 			  
 				<label class="blancos" for="Recordarme">Recordarme</label>
 				<input class="textosForms" type="checkbox" id="Recordarme" name="Recordarme"><br>
+				<% if (error) { %>
+					<br>
+					<p class="blancos"><%= error %></p>
+				<% } %>
 				<input class="textosForms" type="submit" value="Enviar">
 			  </form>
 
