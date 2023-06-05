@@ -102,6 +102,7 @@ const indexController = {
         })
     },
     logout: function (req,res) {
+      res.clearCookie("cookieUsuario")
       req.session.destroy()
       return res.redirect('/')
     }
