@@ -81,6 +81,14 @@ const indexController = {
             let contraseña = data.contraseña
             let check = bcrypt.compareSync(passForm, contraseña)
             if (check) {
+              req.session.user = {
+                id: data.id,
+                email: data.email,
+                userName: data.usuario
+              }
+              if (req.body.Recordarme != undefined) {
+                res.cookie('cookieUsuario', req.session.user, {maxAge: 1000 * 60 * 5} )
+              }
               return res.redirect('/')
             } else {
               return res.render('login', {error: 'La contraseña es incorrecta'})
