@@ -27,7 +27,7 @@
 				</div>
 	
 				<div class="col-7 col-md-6">
-					<form action="/products/detalle" method="GET" class="search-form">
+					<form action="/products/searchResults" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
@@ -53,11 +53,11 @@
 	
 				<ul class="right-navbar">
 					<li><a class="blancos hipervinculos" href="/users/profile/id/<%= locals.user.id %>">
-						<%= locals.user.userName %> <i class="fas fa-user"></i>
+						Bienvenido <%= locals.user.userName %>! <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
-						<form action="/" method="get">
+						<form action="/logout" method="post">
 							<button class="logout blancos hipervinculos" type="submit">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
 							</button>

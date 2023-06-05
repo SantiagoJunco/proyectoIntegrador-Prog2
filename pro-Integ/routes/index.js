@@ -11,6 +11,7 @@ router.post('/login',indexController.iniciarSesion)
 router.get('/register',indexController.register);
 router.post('/register',indexController.registroDatos)
 
+router.post('/logout', indexController.logout)
 
 
 

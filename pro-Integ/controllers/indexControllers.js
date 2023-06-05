@@ -23,7 +23,7 @@ const indexController = {
         return res.render('login',{error: null});
       },
     register:  function(req, res) {
-        return res.render('register',{error: null});
+      return res.render('register',{error: null});
       },
     registroDatos: function(req, res) {
       let emailForm = req.body.email
@@ -100,6 +100,10 @@ const indexController = {
         .catch((error)=>{
           return console.log(error);
         })
+    },
+    logout: function (req,res) {
+      req.session.destroy()
+      return res.redirect('/')
     }
   }
           
