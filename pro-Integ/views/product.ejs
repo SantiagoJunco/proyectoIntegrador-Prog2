@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('./partials/headerOriginal') %>
+<% if (locals.user != undefined) { %>
+	<%- include('./partials/headerLogueado') %>
+ <% } else { %>
+	<%- include('./partials/headerOriginal') %>
+<% } %>
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
