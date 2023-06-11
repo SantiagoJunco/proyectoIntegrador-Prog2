@@ -6,12 +6,10 @@ const Producto = db.Producto
 const userController = {
   profile: function (req, res) {
     let id = req.params.id
-    Producto.findAll({
+    Usuario.findByPk(id, {
       include: [
-        { association: "productoUsuario" }
-      ],where: [{usuarioId: id}] ,order: [
-        ['createdAt', 'DESC'],
-      ]
+        { association: "usuarioProducto" }
+      ], order: [[{ model: Producto, as: 'usuarioProducto' }, 'createdAt', 'DESC']]
     })
       .then((data) => {
         console.log(data);
