@@ -12,21 +12,21 @@
     <section class="info-usuario container products-wrapper">
         <div class="row">
             <div class="img-container offset-3 col-2">
-                <img src="<%=data.fotoPerfil %>" alt="foto de perfil" class="foto-perfil">
+                <img src="<%=data[0].productoUsuario.fotoPerfil %>" alt="foto de perfil" class="foto-perfil">
             </div>
             <div class="data-container col-6">
                 <div class="d-flex align-items-center ">
-                    <h1 class="main-title blancos"><%=data.usuario %>
-                        <a href="/users/profile-edit/id/<%=data.id%>">
+                    <h1 class="main-title blancos"><%=data[0].productoUsuario.usuario %>
+                        <a href="/users/profile-edit/id/<%=data[0].productoUsuario.id%>">
                             <i class="fas fa-cog"></i>
                         </a>
                     </h1>
-                    <a class="btn mt-3 ml-4" href="/users/profile-edit/id/<%=data.id%>">EDITAR</a>
+                    <a class="btn mt-3 ml-4" href="/users/profile-edit/id/<%=data[0].productoUsuario.id%>">EDITAR</a>
                 </div>
                 <div>
                     <ul class="blancos">
-                        <li><%=data.email %></li>
-                        <li><%= data.usuarioProducto.length %> productos</li>
+                        <li><%=data[0].productoUsuario.email %></li>
+                        <li><%= data.length %> productos</li>
                         <li>200 seguidores</li>
                         <li>300 comentarios</li>
                     </ul>
@@ -40,19 +40,19 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title"> Productos de "<%= data.usuario %>" (<%= data.usuarioProducto.length %>)</h2>
+                <h2 class="products-title"> Productos de "<%= data[0].productoUsuario.usuario %>" (<%= data.length %>)</h2>
             </div>
             <!-- Show mis productos -->
-            <% for( let i = 0; i < data.usuarioProducto.length; i++ ) { %>
+            <% for( let i = 0; i < data.length; i++ ) { %>
                 <div class="col-12 col-sm-6 col-lg-3">
                     <section class="product-box">
-                        <a href="/products/id/<%=data.usuarioProducto[i].id%>">
+                        <a href="/products/id/<%=data[i].id%>">
                             <figure class="product-box_image">
-                                <img src="<%= data.usuarioProducto[i].imagen %>" alt="<%=data.usuarioProducto[i].producto %>">
+                                <img src="<%= data[i].imagen %>" alt="<%=data[i].producto %>">
                             </figure>
                             <article class="product-box_data">
-                                <h2><%=data.usuarioProducto[i].producto %></h2>
-                                <p><%= data.usuarioProducto[i].descripcion %></p>
+                                <h2><%=data[i].producto %></h2>
+                                <p><%= data[i].descripcion %></p>
                             </article>
                         </a>
                     </section>

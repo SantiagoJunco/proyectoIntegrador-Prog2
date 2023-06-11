@@ -1,36 +1,36 @@
 const data = require("../data/data");
 const db = require("../database/models");
 const Usuario = db.Usuario
+const Producto = db.Producto
 
 const userController = {
   profile: function (req, res) {
-    let rel = { include: [
-      { association: "usuarioProducto"}
-  ]
-  }
     let id = req.params.id
-    Usuario.findByPk(id, rel, { raw: true, nest: true },{order: [
-      ['fechaCarga', 'DESC'], 
+    Producto.findAll({
+      include: [
+        { association: "productoUsuario" }
+      ],where: [{usuarioId: id}] ,order: [
+        ['createdAt', 'DESC'],
       ]
-      })
+    })
       .then((data) => {
         console.log(data);
-        return res.render('profile', {data}) 
+        return res.render('profile', { data })
       })
       .catch((error) => {
         return console.log(error);
       })
   },
   profileEdit: function (req, res) {
-    let rel = { include: [
-      { association: "usuarioProducto"}
-  ]
-  }
     let id = req.params.id
-    Usuario.findByPk(id, rel, { raw: true, nest: true })
+    Usuario.findByPk(id, {
+      include: [
+        { association: "usuarioProducto" }
+      ]
+      })
       .then((data) => {
         console.log(data);
-        return res.render('profile-edit', {data}) 
+        return res.render('profile-edit', { data })
       })
       .catch((error) => {
         return console.log(error);

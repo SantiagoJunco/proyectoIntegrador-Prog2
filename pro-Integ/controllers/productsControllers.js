@@ -5,12 +5,10 @@ const Producto = db.Producto
 
 const productController = {
   product: function (req, res) {
-    let rel = { include: [
-      { association: "productoComentario", include: [{association: "comentarioUsuario"}]},{association:"productoUsuario"}
-  ]
-  }
     let id = req.params.id
-    Producto.findByPk(id, rel, { raw: true, nest: true })
+    Producto.findByPk(id,{include: [
+      { association: "productoComentario", include: [{association: "comentarioUsuario"}]},{association:"productoUsuario"}
+      ]})
       .then((data) => {
         console.log(data);
         return res.render('product', {data}) 
@@ -20,7 +18,7 @@ const productController = {
       })
   },
   agregarProducto: function (req, res) {
-    return res.render('product-add', { datosUsuario: data.usuario });
+    return res.render('product-add');
   },
   searchResults: function(req, res) {
     let busqueda = req.query.search
@@ -42,6 +40,26 @@ const productController = {
         .catch((error)=>{
           return console.log(error);
         })
+  },
+  crearProducto: function (req, res) {
+    let imagenForm = req.body.imagen
+    let productoForm = req.body.producto
+    let descripcionForm = req.body.descripcion
+    let fechaCargaForm = req.body.fechaCarga
+
+    Producto.create({
+      imagen: imagenForm,
+      producto: productoForm,
+      descripcion: descripcionForm,
+      fechaCarga: fechaCargaForm,
+      usuarioId: req.session.user.id
+    })
+    .then(function (product) {
+     res.redirect('/')
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
   }
 }
 module.exports = productController
