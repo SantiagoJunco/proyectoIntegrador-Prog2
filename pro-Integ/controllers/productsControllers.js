@@ -21,12 +21,12 @@ const productController = {
     return res.render('product-add');
   },
   searchResults: function(req, res) {
-    let busqueda = req.query.search
+    let busquedaForm = req.query.search
 
     Producto.findAll({include: [{association: "productoUsuario"}], where: {
       [op.or]: [
-        {producto: {[op.like] : "%" + busqueda + "%" }},
-        {descripcion: {[op.like] : "%" + busqueda + "%" }}
+        {producto: {[op.like] : "%" + busquedaForm + "%" }},
+        {descripcion: {[op.like] : "%" + busquedaForm + "%" }}
       ]
     },
      order: [
@@ -35,7 +35,7 @@ const productController = {
       })
         .then((data) =>{
           console.log(data);
-          return res.render('search-results',{busqueda: data})
+          return res.render('search-results',{busqueda: data, busquedaForm})
         })
         .catch((error)=>{
           return console.log(error);
