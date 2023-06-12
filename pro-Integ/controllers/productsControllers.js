@@ -78,6 +78,18 @@ const productController = {
         console.log(error);
       })
 
+  },
+  eliminarProducto: function (req, res) {
+    let productoId = req.params.id
+
+    Producto.destroy({ where: { id: productoId } })
+    .then(function (product) {
+      res.redirect('/')
+      })
+    .catch(function (error) {
+      console.log(error);
+    })
   }
 }
+
 module.exports = productController
