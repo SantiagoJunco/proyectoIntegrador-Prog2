@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<% if (locals.user != undefined) { %>
+  <%- include('./partials/headerLogueado') %>
+ <% } else { %>
+  <%- include('./partials/headerOriginal') %>
+<% } %>
+  <!-- /Header -->
+
+  <!-- Novedades -->
+  <div class="container products-wrapper">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="products-title">Editar producto</h2>
+      </div>
+      <!-- Show the "ultimos" products -->
+      <form class="formsConsigna" action="/products/editarProducto/id/<%= data.id %>" method="post">
+        <label class="blancos" for="imagen">Imagen:</label>
+        <input class="textosForms" type="text" id="imagen" name="imagen" value="<%= data.imagen %>"><br>
+        
+        <label class="blancos" for="producto">Nombre del producto:</label>
+        <input class="textosForms" type="text" id="producto" name="producto" value="<%= data.producto %>"><br>
+        
+        <label class="blancos" for="descripcion">Descripcion:</label>
+        <input class="textosForms" type="text" id="descripcion" name="descripcion" value="<%= data.descripcion %>"><br>
+        
+        <label class="blancos" for="fechaCarga">Fecha de carga:</label>
+        <input class="textosForms" type="date" id="fechaCarga" name="fechaCarga" value="<%= data.fechaCarga %>"><br>
+        
+        <input class="textosForms" type="submit" value="Enviar">
+        </form>
+
+
+  <!-- footer -->
+  <%- include('./partials/footer') %>
+  <!-- /footer -->
+</body>
+
+</html>
