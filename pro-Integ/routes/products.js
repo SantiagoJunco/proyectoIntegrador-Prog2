@@ -10,4 +10,6 @@ router.get('/searchResults', productController.searchResults);
 router.get('/agregarProducto',productController.agregarProducto);
 router.post('/agregarProducto',productController.crearProducto);
 
+router.post('/eliminarProducto/id/:id',productController.eliminarProducto)
+
 module.exports = router
