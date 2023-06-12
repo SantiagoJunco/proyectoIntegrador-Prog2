@@ -2,71 +2,75 @@
 <html lang="es">
 <!-- Include Head -->
 <% if (locals.user != undefined) { %>
-	<%- include('./partials/headerLogueado') %>
+    <%- include('./partials/headerLogueado') %>
  <% } else { %>
-	<%- include('./partials/headerOriginal') %>
+    <%- include('./partials/headerOriginal') %>
 <% } %>
-	<!-- product detail -->
-	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%=data.producto %></h2> 
-			<p class="product-detail-description">
-				<a class="blancos hipervinculos" href="/products/agregarProducto">Editar</a>
-			</p>
-		</div>
-		<div class="product-detail">
-			<div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%=data.imagen %>" alt="" class="product-detail-img">
-					<p class="product-detail-description"><%= data.descripcion %></p>
+    <!-- product detail -->
+    <div class="container products-wrapper">
+        <div class="d-flex align-items-center">
+            <h2 class="products-title"><%=data.producto %></h2> 
+            <% if (locals.user != undefined) { %>
+                <% if (locals.user.id == data.productoUsuario.id) { %>
+                    <p class="product-detail-description">
+                        <a class="blancos hipervinculos" href="/products/editarProducto/id/<%= data.id %>">Editar</a>
+                    </p>
+                    <% } %>
+            <% } %>
+        </div>
+        <div class="product-detail">
+            <div class="row">
+                <article class="col-12 col-lg-8 product-detail-info">
+                    <img src="<%=data.imagen %>" alt="" class="product-detail-img">
+                    <p class="product-detail-description"><%= data.descripcion %></p>
                         <p class="product-detail-description"><strong>Fecha de carga:</strong> <%=data.fechaCarga %> </p>
                         <p class="product-detail-description"><strong>Usuario que cargó el producto: </strong> <a href="/users/profile/id/<%=data.productoUsuario.id%>"><%= data.productoUsuario.usuario %></a></p>
-						<% if (locals.user != undefined) { %>
-							<% if (locals.user.id == data.productoUsuario.id) { %>
+                        <% if (locals.user != undefined) { %>
+                            <% if (locals.user.id == data.productoUsuario.id) { %>
                             <form class="form" action="/products/eliminarProducto/id/<%= data.id %>" method="post">
                                 <button type="submit" class="buy-now-button">ELIMINAR PRODUCTO</button>
                             </form>
-							<% } %>
-						<% } %>
-				</article>
-				<div class="col-12 col-lg-4">
-					<section class="comments">
-						<% if (data.productoComentario.length == 0) { %>
-						 <p>No se han publicado todavía comentarios en este producto.</p>
-						 <% } else { %>
-							<% for( let i = 0; i < data.productoComentario.length; i++ ) { %>
-								<article>
-									<img src="<%= data.productoComentario[i].comentarioUsuario.fotoPerfil%>" alt="">
-									<div class="data">
-										<p class="user">
-										<strong> <a class="hipervinculos" href="/users/profile/id/<%=data.productoComentario[i].comentarioUsuario.id  %>"><%=data.productoComentario[i].comentarioUsuario.usuario %>: </a> </strong>
-										<%=data.productoComentario[i].comentario %></p>
-									</div>
-								</article>
-							<% } %>
-						<% } %>
-					</section>
-					<% if (locals.user != undefined) { %>
-						<form class="form" action="/products/id/<%= data.id %>" method="post">
-							<input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
-							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-						</form>
-						<% } else { %>
-						<form class="form" action="/login" method="get">
-							<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-						</form>
-						<% } %>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- /product detail -->
+                            <% } %>
+                        <% } %>
+                </article>
+                <div class="col-12 col-lg-4">
+                    <section class="comments">
+                        <% if (data.productoComentario.length == 0) { %>
+                         <p>No se han publicado todavía comentarios en este producto.</p>
+                         <% } else { %>
+                            <% for( let i = 0; i < data.productoComentario.length; i++ ) { %>
+                                <article>
+                                    <img src="<%= data.productoComentario[i].comentarioUsuario.fotoPerfil%>" alt="">
+                                    <div class="data">
+                                        <p class="user">
+                                        <strong> <a class="hipervinculos" href="/users/profile/id/<%=data.productoComentario[i].comentarioUsuario.id  %>"><%=data.productoComentario[i].comentarioUsuario.usuario %>: </a> </strong>
+                                        <%=data.productoComentario[i].comentario %></p>
+                                    </div>
+                                </article>
+                            <% } %>
+                        <% } %>
+                    </section>
+                    <% if (locals.user != undefined) { %>
+                        <form class="form" action="/products/id/<%= data.id %>" method="post">
+                            <input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
+                            <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+                        </form>
+                        <% } else { %>
+                        <form class="form" action="/login" method="get">
+                            <input class="form-input" type="text" value="" placeholder="Agregar comentario">
+                            <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+                        </form>
+                        <% } %>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /product detail -->
 
-	<!-- footer -->
-	<%- include('./partials/footer') %>
-	<!-- /footer -->
+    <!-- footer -->
+    <%- include('./partials/footer') %>
+    <!-- /footer -->
 
-</body>	
+</body> 
 </html>
