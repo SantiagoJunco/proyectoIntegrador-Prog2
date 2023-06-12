@@ -15,15 +15,13 @@
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form class="formsConsigna" action="/users/profile" method="get">
-                <label class="blancos" for="email">Email:</label>
-                <input class="textosForms" type="email" id="email" name="email" value="<%=data.email%>"><br>
+			<form class="formsConsigna" action="/users/profile-edit/id/<%= data.id %>" method="post">
               
                 <label class="blancos" for="usuario">Usuario:</label>
                 <input class="textosForms" type="text" id="usuario" name="usuario" value="<%=data.usuario  %>"><br>
               
                 <label class="blancos" for="contraseña">Contraseña:</label>
-                <input class="textosForms" type="password" id="contraseña" name="contraseña" value="<%=data.contraseña%>"><br>
+                <input class="textosForms" type="password" id="contraseña" name="contraseña" value=""><br>
               
                 <label class="blancos" for="fecha_nacimiento">Fecha de Nacimiento:</label>
                 <input class="textosForms" type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="<%=data.fechaNacimiento%>"><br>
@@ -35,6 +33,9 @@
                 <input class="textosForms" type="text" id="foto_perfil" name="foto_perfil" value="<%=data.fotoPerfil%>"><br>
               
                 <input class="textosForms" type="submit" value="Enviar">
+                <% if (error) { %>
+                  <label class="blancos" for="error"><%= error %></label>
+                <% } %>
               </form>
 
 

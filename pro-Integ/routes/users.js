@@ -6,6 +6,7 @@ var router = express.Router();
 router.get('/profile/id/:id', userController.profile);
 
 router.get('/profile-edit/id/:id', userController.profileEdit);
+router.post('/profile-edit/id/:id', userController.guardarProfileEdit);
 
 router.get('/searchResultsUsuarios', userController.searchResultsUsuarios);
 
