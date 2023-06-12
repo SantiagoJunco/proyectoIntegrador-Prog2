@@ -21,11 +21,13 @@
 					<p class="product-detail-description"><%= data.descripcion %></p>
                         <p class="product-detail-description"><strong>Fecha de carga:</strong> <%=data.fechaCarga %> </p>
                         <p class="product-detail-description"><strong>Usuario que cargó el producto: </strong> <a href="/users/profile/id/<%=data.productoUsuario.id%>"><%= data.productoUsuario.usuario %></a></p>
-						<% if (locals.user.userName == data.productoUsuario.usuario) { %>
+						<% if (locals.user != undefined) { %>
+							<% if (locals.user.id == data.productoUsuario.id) { %>
                             <form class="form" action="/products/eliminarProducto/id/<%= data.id %>" method="post">
                                 <button type="submit" class="buy-now-button">ELIMINAR PRODUCTO</button>
                             </form>
-                        <% } %>
+							<% } %>
+						<% } %>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
