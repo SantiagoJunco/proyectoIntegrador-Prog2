@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<% if (locals.user != undefined) { %>
+	<%- include('./partials/headerLogueado') %>
+ <% } else { %>
+	<%- include('./partials/headerOriginal') %>
+<% } %>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de búsqueda</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+				<div class="container products-wrapper">
+					<div class="row">
+						<!-- Show the "ultimos" products -->
+						<% if (busqueda.length == 0 || busquedaForm == "") { %>
+								<h2 class="resultadoBusqueda">Lo sentimos, no hay resultados para su criterio de búsqueda (o introduzca uno por favor). </h2>
+						  <% } else { %>
+							<% for( let i = 0; i < busqueda.length ; i++ ) { %>
+								<div class="col-12 col-sm-6 col-lg-3">
+									<section class="product-box">
+										<a href="/users/profile/id/<%=busqueda[i].id%>">
+											<figure class="product-box_image">
+												<img src="<%= busqueda[i].fotoPerfil %>" alt="<%=busqueda[i].usuario %>">
+											</figure>
+											<article class="product-box_data">
+												<h2><%=busqueda[i].usuario %></h2>
+												<p><%= busqueda[i].email %></p>
+											</article>
+                                        </a>
+									</section>
+								</div>
+							<% } %>
+						  <% } %>
+					</div>	
+				</div>
+	<!-- footer -->
+	<%- include('./partials/footer') %>
+	<!-- /footer -->
+</body>
+
+</html>

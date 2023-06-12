@@ -7,4 +7,6 @@ router.get('/profile/id/:id', userController.profile);
 
 router.get('/profile-edit/id/:id', userController.profileEdit);
 
+router.get('/searchResultsUsuarios', userController.searchResultsUsuarios);
+
 module.exports = router;
