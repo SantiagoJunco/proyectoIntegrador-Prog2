@@ -89,6 +89,36 @@ const productController = {
     .catch(function (error) {
       console.log(error);
     })
+  },
+  editarProductoGET: function (req,res) {
+    let productoId = req.params.id
+
+    Producto.findByPk(productoId)
+      .then((data) => {
+        console.log(data);
+        return res.render('product-edit', {data}) 
+      })
+      .catch((error) => {
+        return console.log(error);
+      })
+    
+  }
+  ,
+  editarProductoPOST: function (req, res) {
+    let productoId = req.params.id
+
+    Producto.update({
+      imagen: req.body.imagen,
+      producto:req.body.producto,
+      descripcion: req.body.descripcion,
+      fechaCarga: req.body.fechaCarga
+    },{ where: { id: productoId } })
+    .then(function (product) {
+      res.redirect('/')
+      })
+    .catch(function (error) {
+      console.log(error);
+    })
   }
 }
 
