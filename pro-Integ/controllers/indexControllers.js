@@ -83,11 +83,11 @@ const indexController = {
               req.session.user = {
                 id: data.id,
                 email: data.email,
-                userName: data.usuario,
+                usuario: data.usuario,
                 contraseña: data.contraseña
               }
               if (req.body.Recordarme != undefined) {
-                res.cookie('cookieUsuario', req.session.user.id, {maxAge: 1000 * 60 * 5} )
+                res.cookie('cookieUsuario', req.session.user, {maxAge: 1000 * 60 * 5} )
               }
               return res.redirect('/')
             } else {
